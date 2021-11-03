@@ -1,15 +1,15 @@
-%% ×îÓÅÒ¶×Ó½ÚµãÊıÓëÊ÷ÊıÈ·¶¨
-%%ÓÃÒÔÑµÁ·Ò»¸öËæ»úÉ­ÁÖÄ£ĞÍ
-% Êı¾İÒÔÁĞÏòÁ¿µÄĞÎÊ½ÊäÈë
-% Ê¾Àı£º
+%% æœ€ä¼˜å¶å­èŠ‚ç‚¹æ•°ä¸æ ‘æ•°ç¡®å®š
+%%ç”¨ä»¥è®­ç»ƒä¸€ä¸ªéšæœºæ£®æ—æ¨¡å‹
+% æ•°æ®ä»¥åˆ—å‘é‡çš„å½¢å¼è¾“å…¥
+% ç¤ºä¾‹ï¼š
 % Input=unifrnd(1,100,[5,140])';
 % Output=unifrnd(5,10,[1,140])';
-% Êµ¼ÊÊı¾İÊäÈëÊ±£¬½«×Ô±äÁ¿ÃüÃûÎªInput£¬Êı¾İĞÎÊ½ÎªÊıÖµ¾ØÕó£»½«Òò±äÁ¿ÃüÃûÎªOutput
+% å®é™…æ•°æ®è¾“å…¥æ—¶ï¼Œå°†è‡ªå˜é‡å‘½åä¸ºInputï¼Œæ•°æ®å½¢å¼ä¸ºæ•°å€¼çŸ©é˜µï¼›å°†å› å˜é‡å‘½åä¸ºOutput
 
 
-%%´Ë´úÂëÓĞÁ½´¦ĞèÒªÊµÊ±ĞŞ¸ÄµÄµØ·½
-%%1.²ÎÊınTreeºÍnLeafĞèÒª¸ù¾İµÚÒ»ÕÅ¡°Leaef and Trees¡±Í¼À´Ñ¡È¡×î¼ÑÉèÖÃÖµ
-%%2.¾«¶ÈºâÁ¿²¿·ÖifÓï¾äÖĞ¾ù·½¸ùÎó²îRFRMSEãĞÖµĞèÒªÒÀÇé¿öÉèÖÃ
+%%æ­¤ä»£ç æœ‰ä¸¤å¤„éœ€è¦å®æ—¶ä¿®æ”¹çš„åœ°æ–¹
+%%1.å‚æ•°nTreeå’ŒnLeaféœ€è¦æ ¹æ®ç¬¬ä¸€å¼ â€œLeaef and Treesâ€å›¾æ¥é€‰å–æœ€ä½³è®¾ç½®å€¼
+%%2.ç²¾åº¦è¡¡é‡éƒ¨åˆ†ifè¯­å¥ä¸­å‡æ–¹æ ¹è¯¯å·®RFRMSEé˜ˆå€¼éœ€è¦ä¾æƒ…å†µè®¾ç½®
 %%
 clear;
 
@@ -17,16 +17,16 @@ load('Input.mat');
 load('Output.mat');
 Input=[X1,X2,X3,X4];
 Output=Y;
-% ¶à´ÎÑ­»··ÀÖ¹×îÓÅ½á¹ûÊÜµ½Ëæ»ú¸ÉÈÅ
+% å¤šæ¬¡å¾ªç¯é˜²æ­¢æœ€ä¼˜ç»“æœå—åˆ°éšæœºå¹²æ‰°
 % for RFOptimizationNum=1:5
 
-RFLeaf=[5,10,20,50,100,200,500];  %³õÊ¼Ò¶×Ó½ÚµãÊı£¨Ò¶×Ó¿É¿´×÷ÊÇÃ¿¿ÃÊ÷Ñ¡ÔñÌØÕ÷µÄ¸öÊı£©
+RFLeaf=[5,10,20,50,100,200,500];  %åˆå§‹å¶å­èŠ‚ç‚¹æ•°ï¼ˆå¶å­å¯çœ‹ä½œæ˜¯æ¯æ£µæ ‘é€‰æ‹©ç‰¹å¾çš„ä¸ªæ•°ï¼‰
 col='rgbcmyk';
 figure('Name','RF Leaves and Trees');
 for i=1:length(RFLeaf)
-    %TreeBagger:²ÎÊıÒ»£¨½¨Á¢Ê÷µÄÊıÁ¿£©²»ÒËÌ«ÉÙ£¬Ö®ºóÔÙ¸ù¾İÍ¼±íÑ¡È¡Ê÷µÄ¸öÊı
+    %TreeBagger:å‚æ•°ä¸€ï¼ˆå»ºç«‹æ ‘çš„æ•°é‡ï¼‰ä¸å®œå¤ªå°‘ï¼Œä¹‹åå†æ ¹æ®å›¾è¡¨é€‰å–æ ‘çš„ä¸ªæ•°
     RFModel=TreeBagger(1000,Input,Output,'Method','r','OOBPrediction','On','MinLeafSize',RFLeaf(i));
-    plot(oobError(RFModel),col(i));  %¼ÆËã²»Í¬Ò¶×ÓÊ÷Ê±½¨Á¢µÄËæ»úÉ­ÁÖµÄ´üÍâÎó²î£¬²¢»æÖÆÍ¼±í
+    plot(oobError(RFModel),col(i));  %è®¡ç®—ä¸åŒå¶å­æ ‘æ—¶å»ºç«‹çš„éšæœºæ£®æ—çš„è¢‹å¤–è¯¯å·®ï¼Œå¹¶ç»˜åˆ¶å›¾è¡¨
     hold on
 end
 xlabel('Number of Grown Trees');
@@ -40,54 +40,53 @@ hold off;
 
 
 %% 
-%% ²ÎÊıÉèÖÃ
-RFRMSEMatrix=[];  %¾ù·½¸ùÎó²î¾ØÕó
-RFrAllMatrix=[];  %»Ø¹éÏµÊı¾ØÕó
+%% å‚æ•°è®¾ç½®
+RFRMSEMatrix=[];  %å‡æ–¹æ ¹è¯¯å·®çŸ©é˜µ
+RFrAllMatrix=[];  %å›å½’ç³»æ•°çŸ©é˜µ
 
-%ÕâÀïÉèÖÃÒ»¸ö¶Ïµã
+%è¿™é‡Œè®¾ç½®ä¸€ä¸ªæ–­ç‚¹
 
-%¹Û²ìÖ®Ç°µÄÍ¼±íÖĞÄÄÌõÇúÏßÎó²î×îĞ¡£¬È¡ÆäÖµÎªnTree
-%¹Û²ì¸ÃÇúÏßÊÕÇ÷ÓÚÆ½»ºÊ±×îĞ¡ µÄÉ­ÁÖÊ÷µÄ¸öÊı£¬È¡ÆäÖµÎªnLeaf
-nTree=100; %×îÓÅÊ÷¸öÊı
-nLeaf=5; %×îÓÅÒ¶×Ó½Úµã¸öÊı
+%è§‚å¯Ÿä¹‹å‰çš„å›¾è¡¨ä¸­å“ªæ¡æ›²çº¿è¯¯å·®æœ€å°ï¼Œå–å…¶å€¼ä¸ºnTree
+%è§‚å¯Ÿè¯¥æ›²çº¿æ”¶è¶‹äºå¹³ç¼“æ—¶æœ€å° çš„æ£®æ—æ ‘çš„ä¸ªæ•°ï¼Œå–å…¶å€¼ä¸ºnLeaf
+nTree=100; %æœ€ä¼˜æ ‘ä¸ªæ•°
+nLeaf=5; %æœ€ä¼˜å¶å­èŠ‚ç‚¹ä¸ªæ•°
 
-%% Ëæ»úÉ­ÁÖ½¨Ä£
+%% éšæœºæ£®æ—å»ºæ¨¡
 % RFScheduleBar=waitbar(0,'Random Forest is Solving...');
 RFRunNumSet=2000;
 for RFCycleRun=1:RFRunNumSet
-    %% ÑµÁ·ºÍ²âÊÔÊı¾İ¼¯µÄ»®·Ö
-    % »®·Ö¹ı³ÌÖĞÈ·±£Ëæ»úĞÔ
+    %% è®­ç»ƒå’Œæµ‹è¯•æ•°æ®é›†çš„åˆ’åˆ†
+    % åˆ’åˆ†è¿‡ç¨‹ä¸­ç¡®ä¿éšæœºæ€§
     RandomNumber=(randperm(length(Output),floor(length(Output)*0.2)))';
     TrainY=Output;
     TestY=zeros(length(RandomNumber),1);
     TrainX=Input;
     TestX=zeros(length(RandomNumber),size(TrainX,2));
     for i=1:length(RandomNumber)
-        % ÒÔËæ»úÉú³ÉµÄRandomNumber¾ØÕóÖĞµÄÊıÖµµ±×÷Ë÷Òı
-        % ³éÈ¡ÑµÁ·Êı¾İÖĞ¶ÔÓ¦µÄÑù±¾Êı¾İ×÷Îª²âÊÔÊı¾İ
-        % ±»³éÈ¡µÄÊı¾İ¸³Öµ0£¬´ú±í¸Ã´¦Êı¾İÒÑ±»³éÈ¡
+        % ä»¥éšæœºç”Ÿæˆçš„RandomNumberçŸ©é˜µä¸­çš„æ•°å€¼å½“ä½œç´¢å¼•
+        % æŠ½å–è®­ç»ƒæ•°æ®ä¸­å¯¹åº”çš„æ ·æœ¬æ•°æ®ä½œä¸ºæµ‹è¯•æ•°æ®
+        % è¢«æŠ½å–çš„æ•°æ®èµ‹å€¼0ï¼Œä»£è¡¨è¯¥å¤„æ•°æ®å·²è¢«æŠ½å–
         m=RandomNumber(i,1);
         TestY(i,1)=TrainY(m,1);
         TestX(i,:)=TrainX(m,:);
         TrainY(m,1)=0;
         TrainX(m,:)=0;
-        % RandomNumber¾ØÕóÖĞµÄÖµÈ·±£³éÈ¡Êı¾İµÄËæ»úĞÔ
+        % RandomNumberçŸ©é˜µä¸­çš„å€¼ç¡®ä¿æŠ½å–æ•°æ®çš„éšæœºæ€§
     end
-    % ÌŞ³ı±»Ëæ»úÑ¡ÖĞµÄÑù±¾Êı¾İ
+    % å‰”é™¤è¢«éšæœºé€‰ä¸­çš„æ ·æœ¬æ•°æ®
     TrainY(all(TrainY==0,2),:)=[];
     TrainX(all(TrainX==0,2),:)=[];
-
-    %% Ëæ»úÉ­ÁÖÄ£ĞÍµÄÑµÁ·
+    %% éšæœºæ£®æ—æ¨¡å‹çš„è®­ç»ƒ
     RFModel=TreeBagger(nTree,TrainX,TrainY,...
     'Method','regression','OOBPredictorImportance','on', 'MinLeafSize',nLeaf);
-    % RFPredictYÎªÔ¤²â½á¹û£¬RFPredictConfidenceIntervalÎªÔ¤²â½á¹ûµÄÖÃĞÅÇø¼ä
+    % RFPredictYä¸ºé¢„æµ‹ç»“æœï¼ŒRFPredictConfidenceIntervalä¸ºé¢„æµ‹ç»“æœçš„ç½®ä¿¡åŒºé—´
     [RFPredictY,RFPredictConfidenceInterval]=predict(RFModel,TestX);
     
-    %% ¾«¶ÈºâÁ¿
+    %% ç²¾åº¦è¡¡é‡
     RFRMSE=sqrt(sum((RFPredictY-TestY).^2)/size(TestY,1));
-    % ¼ÆËãÁ½±äÁ¿»òÁ½¾ØÕóÏà¹ØÏµÊı,corrcoef(x,y):xºÍy±ØĞë´óĞ¡Î¬¶ÈÏàÍ¬
+    % è®¡ç®—ä¸¤å˜é‡æˆ–ä¸¤çŸ©é˜µç›¸å…³ç³»æ•°,corrcoef(x,y):xå’Œyå¿…é¡»å¤§å°ç»´åº¦ç›¸åŒ
     
-    %% ¸ÃÅĞ¶ÏÓï¾äÓÃÓÚµ÷ÊÔ´úÂë
+    %% è¯¥åˆ¤æ–­è¯­å¥ç”¨äºè°ƒè¯•ä»£ç 
     % if isnan(RFRMSE)
     %     keyboard;
     % end
@@ -96,7 +95,7 @@ for RFCycleRun=1:RFRunNumSet
     RFr=RFrMatrix(1,2);
     RFRMSEMatrix=[RFRMSEMatrix,RFRMSE];
     RFrAllMatrix=[RFrAllMatrix,RFr];
-    %ÉèÖÃ¾ù·½¸ùÎó²îµÄãĞÖµ
+    %è®¾ç½®å‡æ–¹æ ¹è¯¯å·®çš„é˜ˆå€¼
     if RFRMSE<8000
         disp(RFRMSE);
         break;
@@ -107,15 +106,15 @@ for RFCycleRun=1:RFRunNumSet
 end
 % close(RFScheduleBar);
 
-%% »æÍ¼Ö®Ç°ÏÈ¶Ô¸÷±äÁ¿µÄÖØÒªĞÔ½øĞĞ¹éÒ»»¯
-NormalizedImportanceX=[];  % ×îÖØÒªµÄ±äÁ¿ÉèÖÃÎªµ¥Î»Ò»
+%% ç»˜å›¾ä¹‹å‰å…ˆå¯¹å„å˜é‡çš„é‡è¦æ€§è¿›è¡Œå½’ä¸€åŒ–
+NormalizedImportanceX=[];  % æœ€é‡è¦çš„å˜é‡è®¾ç½®ä¸ºå•ä½ä¸€
 MaxOOBError=max(RFModel.OOBPermutedPredictorDeltaError);
 for i=1:length(RFModel.OOBPermutedPredictorDeltaError)
     NormalizedImportanceX=[NormalizedImportanceX,RFModel.OOBPermutedPredictorDeltaError(i)/MaxOOBError];
 end
 
-%% ±äÁ¿ÖØÒªĞÔ±È½ÏÅÅĞò
-% »æÖÆÃ¿Ò»¸ö×Ô±äÁ¿¶ÔÒò±äÁ¿µÄÖØÒª³Ì¶ÈÍ¼
+%% å˜é‡é‡è¦æ€§æ¯”è¾ƒæ’åº
+% ç»˜åˆ¶æ¯ä¸€ä¸ªè‡ªå˜é‡å¯¹å› å˜é‡çš„é‡è¦ç¨‹åº¦å›¾
 VariableImportanceX={};
 XNum=1;
 for i=1:size(Input,2)
@@ -132,7 +131,7 @@ xlabel('Factor');
 ylabel('Importance');
 ylim([0,1.2]);
 
-%% ±£´æÄ£ĞÍ
+%% ä¿å­˜æ¨¡å‹
 RFModelSavePath='D:\MachineLearning\RF';
 save(sprintf('RFModel.mat',RFModelSavePath),'nLeaf','nTree',...
     'RandomNumber','RFModel','RFPredictConfidenceInterval','RFPredictY','RFr','RFRMSE',...
